@@ -50,6 +50,7 @@
 
     By specifying the 'crossorigin' attribute, web developers can tell the browsers to include the 'origin' header in the request, and can also specify whether or not to send any credentials such as cookies along with the request.
 
+                                                    _______________________
 
 🔰❓ What is diference between React and ReactDOM?
     In short, React is a library for building UI components, and ReactDOM
@@ -57,6 +58,7 @@
 
     ReactDOM is responsible for updating the DOM to reflect the changes made to a React Component.
 
+                                                    _______________________
 
 🔰❓ What is difference between react.development.js and react.production.
     js files via CDN?  
@@ -64,6 +66,7 @@
 
     On the other hand, the react.production.js file is a version of the React library that is optimized for production. It has been minified and stripped of unnecessary code, so it is smaller in size and runs more efficiently in the browser. It does not include the extra warnings and error messages that are present in the development version of the library.
 
+                                                   _______________________                    
 
 🔰❓ What is async and defer?
     The 'async' and 'defer' attributes are used to specify th loading behaviour of external JavaScript scripts.
@@ -80,3 +83,6 @@
 
         <script src = "script.js"  defer  ></script>
     
+
+
+        _______________________  DONE  _______________________
