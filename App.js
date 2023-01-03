@@ -3,12 +3,6 @@ import ReactDOM from "react-dom/client";
 
 //  JSX => React.createElement => object => HTML(DOM).
 
-// this is a normal javascript function.
-const Title = () => (           
-  <h1 id="title" key="1">
-      This is heading
-  </h1>
-);
 
 // React Component
 //  - Functional component
@@ -23,7 +17,6 @@ const HeaderComponent = () => {
     </div>
   );
 }
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
