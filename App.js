@@ -9,6 +9,7 @@ const heading1 = React.createElement(
   "This line is coming from the parcel"
 );
 
+
 const heading2 = React.createElement(
   "h1",
   {
@@ -24,8 +25,6 @@ const container = React.createElement(
   },
   [heading1, heading2]
 );
-
-// console.log(heading);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
