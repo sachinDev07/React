@@ -1,0 +1,124 @@
+# Chapter-2 Notes
+
+    1. What is NPM ?
+
+       NPM is a node packaged manager, it means it is basically used for managing our packages.
+       
+    💡 Why we use NPM ?
+
+       Because our React app is powered by lot of packages,suppose if we have to minify, for bundling up  
+       things to remove console.log, for image optimisation in our appcacheing for that we need lot of   
+       helper/packages and those helper packages comes inside npm. 
+---
+    2. What is Parcel/Webpack ?
+
+       Parcel/Webpack, these are the bundlers. Bundler is a tool which takes our source code and assests and combine
+       them into a single bundle that can be loaded by a web browser. The purpose of a bundler is to make it easier to 
+       build and deploy web applications by handling tasks such as,
+
+       - Transforming and Optimizing code and assests: For example, a bundler might transpile modern javascript code to  
+         be compatible with old browsers, or minify CSS and Javascript file to reduce their size.
+       - Managing Dependencies: A bundler can help us to manage out packages and libraries that our application  
+         depends on, and automatically include them in our bundle.
+       - Splitting code into smaller chunks: A bundler can split your code into smaller pieces, called "chunks,
+         "which can be loaded on demand. This can help improve the performance of your application, by allowing
+         it to load faster and reducing the amount of code that needs to be downloaded initially.
+ ---
+    3. What is `.parcel-cache` ?
+       
+       The cache feature of the bundler is used to stores the results of certain operations in order to speed up
+       the build process. When bundler runs, it will check the cached version instead of running the operation again.
+       This can significantly speed up the build process, especially for large projects with many dependencies.
+---
+    4. What is `npx` ?
+
+       npx is a tool that is included with npm, the package manager for JavaScript. It allows you to run npm
+       packages that you have installed locally or globally.npx can be used to run executables from local or
+       global packages, without the need to install them globally.
+---
+    5. What is difference between `dependencies` vs `devDependencies` ?
+
+       In a package.json file, the dependencies field lists the packages that our project depends on, and that
+       are required to run in production.
+
+       The devDependencies field, on the other hand, lists the packages that are only needed for development,
+       such as linters, testing libraries, and build tools. These packages are not required to run the app in
+       production, and will not be included in the production build.
+---
+    6. What is Tree Shaking?
+
+       Tree shaking is a term used in the context of JavaScript bundlers and transpilers, such as Webpack or
+       Parcel, to describe the process of removing unused code from our final bundle. This can help reduce the
+       size of our application and improve its performance.
+---
+    7. What is Hot Module Replacement?
+   
+       Hot Module Replacement (HMR) is a feature that allows us to update our application's code while it is
+       running, without having to refresh the page or stop the server. It works by intercepting changes to our
+       application's modules, and replacing the changed modules on the fly.
+---
+    8. List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
+
+       1. Hot Module Replacement (HMR).
+       2. Minification.
+       3. Code spilliting.
+       4. Image Optimisation.
+       5. Cacheing in application.
+       6. Bundling.
+
+       1. Minification:
+       In the context of JavaScript bundlers, minification is the process of reducing the size of our code by
+       removing unnecessary characters and optimizing the code to make it as small as possible. This can
+       include things like removing white space, comments, and shortening variable names to single letters.
+
+       2. Code spilliting:
+       Code splitting is often used in JavaScript bundlers like Parcel to improve the performance of large
+       applications by dividing the code into smaller chunks that can be loaded as needed. It can also help to
+       reduce the initial load time of an application by only loading the code that is required for the initial
+       view.
+
+       3. Bundling:
+       Bundling is the process of combining multiple files, such as JavaScript and CSS files, into a single
+       file or group of files. This is often done to improve the performance of a web application by reducing
+       the number of HTTP requests that the client needs to make to the server.
+---
+    9. What is `.gitignore`? What should we add and not add into it?
+
+       .gitignore is a file that is used to specify patterns for files that should be ignored by Git,
+
+       Folders generated by package managers, such as npm’s node_modules folder. This is a folder used for
+       saving and tracking the dependencies for each package you install locally.
+       Files that contain sensitive data and personal information. Some examples of such files are files with
+       your credentials (username and password) and files with environment variables like .env files (.env
+       files contain API keys that need to remain secure and private).
+       Runtime files, such as .log files. They provide information on the Operating System’s usage activities
+       and errors, as well as a history of events that have taken place within the OS.
+
+       It is not recommended to add files that are necessary for your application to run, or that are tracked
+       by Git, to your .gitignore file. These files should be committed to your repository, so that they can be
+       shared with other developers and deployed to production environments.
+---
+    10. Why should I not modify `package-lock.json`?
+
+        We should not modify package-lock.json because it is a generated file that is used to lock the versions
+        of the packages in our project's dependencies and devDependencies to a specific version.
+---
+    11. What is `node_modules` ?
+
+        The node_modules directory can contain many subdirectories, one for each package that is installed.
+        These subdirectories contain the package's code, as well as any dependencies that the package has.
+        It is just like a database for our npm. It has many helper functions.
+---
+    12. What is the `dist` folder?
+
+        It is typically the directory where the final, production-ready version of a web application is built.
+
+        It usually contained the final, minified and optimised version of the application's code, as well as
+        any assests such as images and fonts that are needed for the application to run.
+        The contents of the 'dist' directory are usually what is deployed to a web server in order to make
+        application available to users.
+---
+    13. What is 'Browserlist'?
+   
+        Browserlist is a thing which makes our code compatible for a lot of browsers.
+---
