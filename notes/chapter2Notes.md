@@ -12,7 +12,8 @@
 ---
     2. What is Parcel/Webpack ?
 
-       Parcel/Webpack, these are the bundlers. Bundler is a tool which takes our source code and assests and combine them into a single bundle that can be loaded by a web browser. The purpose of a bundler is to
+       Parcel/Webpack, these are the bundlers. Bundler is a tool which takes our source code and assests and
+       combine them into a single bundle that can be loaded by a web browser. The purpose of a bundler is to
        make it easier to build and deploy web applications by handling tasks such as,
 
        - Transforming and Optimizing code and assests: For example, a bundler might transpile modern javascript
