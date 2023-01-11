@@ -1,3 +1,45 @@
-#container{
-    background-color: rgb(38, 56, 50);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    max-width: 100%;
+    padding: 1rem 11rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header .title {
+    color: green;
+}
+
+.nav-items > ul {
+    display: flex;
+    gap: 1rem;
+    text-align: center;
+}
+
+.nav-items > ul > li {
+    font-size: 1.3rem;
+}
+
+.restauranlist {
+    padding: 1rem 11rem;
+    display: flex;
+    gap:  2rem 1rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 280px;
+}
+
+.card > img {
+    width: 100%;
 }
