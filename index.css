@@ -4,6 +4,8 @@
     box-sizing: border-box;
     list-style: none;
     font-family: 'Roboto', sans-serif;
+    list-style: none;
+    text-decoration: none;
 }
 
 .header {
@@ -17,6 +19,9 @@
 
 .header .title {
     color: green;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 .nav-items > ul {
@@ -27,6 +32,11 @@
 
 .nav-items > ul > li {
     font-size: 1.3rem;
+    color: black;
+}
+
+.nav-items ul li .list-item {
+    color: black;
 }
 
 .restauranlist {
