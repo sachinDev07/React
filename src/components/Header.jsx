@@ -1,13 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const loggedInUser = () => {
-  return false;
-}
 
 const Title = () => (
-    <h1 className="title" id="title" key="h2">
+    <Link to="/" className="title" id="title" key="h2">
       .foodCafe'
-    </h1>
+    </Link>
 );
 
 
@@ -17,14 +15,15 @@ const Header = () => {
 
     return (
       <div className="header">
-        <Title /> {/* or it can be written as  { Title() }    */}
+        <Title /> 
         <div className="nav-items">
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
-            <li>Cart</li>
-            <li>{isLoggedIn ? <button onClick={() => setIsLoggedIn(false)} >Logout</button> : <button onClick={() => setIsLoggedIn(true)} >Login</button>}</li>
+            <li><Link className="list-item" to="/" > Home </Link> </li>
+            <li><Link className="list-item" to="/about" > About </Link></li>
+            <li><Link className="list-item" to="/contact" > Contact </Link></li>
+            <li><Link className="list-item" to="/cart" > Cart </Link></li>
+            <li>{isLoggedIn ? <button onClick={() => setIsLoggedIn(false)} > Logout
+            </button> : <button onClick={() => setIsLoggedIn(true)} >Login</button>}</li>
           </ul>
         </div>
       </div>
