@@ -11,7 +11,6 @@ class ProfileClass extends React.Component {
         locaton : "Computer",
       }
     };
-    console.log("Child - Constructor  " + this.props.name);
   }
 
   async componentDidMount () {
@@ -22,8 +21,6 @@ class ProfileClass extends React.Component {
     this.setState({
       userInfo : json,
     });
-
-    console.log("Child - componentDidMount " + this.props.name)
   }
 
   componentDidUpdate( ) {
@@ -31,16 +28,13 @@ class ProfileClass extends React.Component {
     //   console.log("I love react");
     // }, 1000);
 
-    console.log("Component - componentDidUpdate ");
   }
 
   componentWillUnmount() {
     clearInterval(this.timer);
-    console.log("Component - componentWillUnmount");
   }
 
   render() {
-    console.log("Child - render " + this.props.name);
     
     const { count } = this.state; // we can destructure like this also
 
@@ -57,19 +51,3 @@ class ProfileClass extends React.Component {
 
 export default ProfileClass;
 
-/**
- *  --- Render phase : what changes should be made to virtual DOM ---
- *  
- *  Parent Constructor
- *  Parent render
- *    First child constructor
- *    First child render
- *    Second child constructor
- *    Second child render
- * 
- *    --- Commit phase : DOM updated for childer ---
- * 
- *    First child ComponentDidMount
- *    Second child ComponentDidMount
- *  Parent ComponentDidMount
- */
