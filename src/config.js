@@ -7,9 +7,6 @@ export const FETCH_MENU_URL =
 export const API_URL =
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING";
 
-export const LOGO_URL = 
-   "https://see.fontimg.com/api/renderfont4/9Y2DK/eyJyIjoiZnMiLCJoIjo4MSwidyI6MTI1MCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/Zm9vZENhZmZlJw/nature-beauty-personal-use.png";
-
 export const restrauntList = [
   {
     type: "restaurant",
