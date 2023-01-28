@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData} from ".././utils/helper"
 import useOnline from "../hooks/useOnline";
+import { API_URL } from "../config";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -16,9 +17,7 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(API_URL);
     const json = await data.json();
     console.log(json);
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
@@ -34,8 +33,8 @@ const Body = () => {
   // Early rendering...
   if(!allRestaurants) return null;
 
-  if(filteredRestaurants?.length === 0)
-    return <h1>No Restaurant Found</h1>
+  // if(filteredRestaurants?.length === 0)
+  //   return <h1>No Restaurant Found</h1>
 
   return allRestaurants.length === 0 ? (
     <Shimmer/>
@@ -46,7 +45,7 @@ const Body = () => {
             setSearchText(e.target.value);
           }}
         />
-        <button className="btn" onClick={() => {
+        <button className="search-btn" onClick={() => {
             // need to filter the data
             const data = filterData(searchText, allRestaurants);
             // update the state:
