@@ -32,7 +32,7 @@ const RestaurantCard = ({
                         ? "text-xs text-red-600 font-extrabold bg-pink-300 p-1 rounded-sm" 
                         : "text-xs text-green-700 font-extrabold bg-green-200 p-1 rounded-sm"
                     }>
-                   <i class="fa-regular fa-star"></i> {avgRating } 
+                   <i className="fa-regular fa-star"></i> {avgRating } 
               </span>
               <img className="w-1 h-1 m-auto block text-center " src={Single_dot} alt="small-circle" />
               <span className="text-black font-semibold text-base">{minDeliveryTime} mins </span>
