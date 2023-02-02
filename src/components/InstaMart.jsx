@@ -6,13 +6,18 @@ const Section = ({title, description, isVisible, setIsVisible}) => {
         <div className="border border-black p-2 m-2">
             <h3 className="font-bold text-xl">{title}</h3>
             {
-                isVisible ? (
+                isVisible ? 
+                            (
                              <div>
                                 <button className="underline" onClick={() => setIsVisible(false)}>Hide</button>
                                 <p>{description}</p>
                              </div>
                             )
-                          : (<button className="underline" onClick={() => setIsVisible(true)}>Show</button>)
+                          : 
+                            (
+                             <button className="underline" onClick={() => setIsVisible(true)}>Show
+                             </button>
+                            )
             }
         </div>
     );
@@ -34,7 +39,7 @@ const InstaMart = () => {
         } 
 
         isVisible = {visibleSection === "about"}
-        setIsVisible = {() => setVisibleSection("about")}
+        setIsVisible={() => setVisibleSection(visibleSection === "about" ? "" : "about")}
 
       />
 
@@ -45,7 +50,7 @@ const InstaMart = () => {
         }
 
         isVisible = {visibleSection === "team"}
-        setIsVisible = { () => setVisibleSection("team")}
+        setIsVisible={() => setVisibleSection(visibleSection === "team" ? "" : "team")}
 
       />
 
@@ -56,8 +61,7 @@ const InstaMart = () => {
         }
 
         isVisible = {visibleSection === "carreer"}
-        setIsVisible = { () => setVisibleSection("carreer")}
-
+        setIsVisible={() => setVisibleSection(visibleSection === "carreer" ? "" : "carreer")}
       />
 
     </div>
