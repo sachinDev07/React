@@ -40,15 +40,20 @@ const RestaurantCard = ({
               <span className="text-black font-semibold text-base">{costForTwoString}</span>
             </div>
             <hr className="opacity-100 text-gray-400" />
-            <div className="mt-2 text-red-600">
+
             {
-              aggregatedDiscountInfo ? (<p className="text-blue-700"><img className="w-5 inline-block " src={Sale} alt="sale-image" />{(" ")}
-                                       {aggregatedDiscountInfo?.descriptionList[0].meta}</p>) 
-                                     : ("")
+              aggregatedDiscountInfo 
+                ? (
+                   <div className="flex mt-4">
+                      <img className="w-5 h-5 mt-1 " src={Sale} alt="sale-image" />
+                      <p className="text-blue-700 pl-2">
+                      {aggregatedDiscountInfo?.descriptionList[0].meta}</p>
+                   </div>
+                  ) 
+                : ("")
               
             }
-            
-            </div>
+          
           </div>
         );
       };
