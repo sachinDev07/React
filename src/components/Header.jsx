@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { LOGO_URL } from "../config";
-import logo from ".././assests/images/logoImg.png";
+import { Link } from "react-router-dom";import logo from ".././assests/images/logoImg.png";
 
 
 const Title = () => (
     <Link to="/" className="w-48" id="title" >
-      <img className="logo" src={logo} alt="logo" />
+      <img className="transition-all duration-300 ease-in-out hover:scale-105" src={logo} alt="logo" />
     </Link>
 );
 
@@ -18,27 +16,27 @@ const Header = () => {
   // const isOnline = useOnline();
 
     return (
-      <div className=" flex fixed left-0 top-0 w-full z-50 py-4 px-44 justify-between content-center bg-gray-100 shadow-lg">
+      <div className=" flex fixed left-0 top-0 w-full z-50 py-4 px-44 justify-between items-center text-center bg-gray-100 shadow-lg">
         <Title /> 
         <div className="nav-items">
-          <ul className="flex gap-4 text-xl  text-black ">
-            <li><Link className="p-2 hover:text-white hover:rounded-md hover:bg-blue-600 transition-all ease-in duration-300 m-auto text-center block" to="/" > Home </Link> </li>
-            <li><Link className="p-2 hover:text-white hover:rounded-md hover:bg-blue-600 transition-all ease-in duration-300 m-auto text-center block" to="/about" > About </Link></li>
-            <li><Link className="p-2 hover:text-white hover:rounded-md hover:bg-blue-600 transition-all ease-in duration-300 m-auto text-center block" to="/contact" > Contact </Link></li>
-            <li><Link className="p-2 hover:text-white hover:rounded-md hover:bg-blue-600 transition-all ease-in duration-300 m-auto text-center block" to="/cart" > Cart </Link></li>
-            <li><Link className="p-2 hover:text-white hover:rounded-md hover:bg-blue-600 transition-all ease-in duration-300 m-auto text-center block" to="/instamart">Instamart</Link></li>
+          <ul className="flex gap-4 text-xl  text-black items-center text-center">
+            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/" > Home </Link> </li>
+            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/about" > About </Link></li>
+            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/contact" > Contact </Link></li>
+            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/cart" > Cart </Link></li>
+            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/instamart">Instamart</Link></li>
             {/* <li>{isOnline ? "✅" : "🔴"}</li> */}
             <li>
                 {
                   isLoggedIn 
                   ? 
                     <button 
-                            className="w-24 py-2 px-4  bg-blue-700 text-white border-none rounded-sm font-medium"
+                            className="px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg transition duration-150 ease-in-out"
                             onClick={() => setIsLoggedIn(false)} > Logout 
                     </button> 
                   : 
                     <button 
-                            className="py-2 px-4  bg-black text-white border-none rounded-sm font-medium"
+                            className="px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                             onClick={() => setIsLoggedIn(true)} > Login 
                     </button>
                 }
