@@ -45,7 +45,7 @@ const Body = () => {
             setSearchText(e.target.value);
           }}
         />
-        <button className="py-3 px-5 text-lg font-semibold outline-none border-solid border-1 border-black bg-blue-700 text-white" onClick={() => {
+        <button className="px-6 py-1 bg-blue-600 text-white font-medium text-base leading-tight uppercase rounded-r-sm shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" onClick={() => {
             // need to filter the data
             const data = filterData(searchText, allRestaurants);
             // update the state:
