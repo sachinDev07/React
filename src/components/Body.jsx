@@ -1,55 +1,44 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData} from ".././utils/helper"
 import useOnline from "../hooks/useOnline";
-import { API_URL } from "../config";
+import useAllRestaurents from "../hooks/useAllRestaurents";
 
 const Body = () => {
-  const [allRestaurants, setAllRestaurants] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  
   const [searchText, setSearchText] = useState("");
-
-  useEffect(() =>{
-    // API call
-    getRestaurants();
-  }, []);
-
-  async function getRestaurants() {
-    const data = await fetch(API_URL);
-    const json = await data.json();
-    console.log(json);
-    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-  }
+  const {allRestaurants, filteredRestaurants, setFilteredRestaurants, loading} = useAllRestaurents();
 
   const isOnline = useOnline();
 
   if(!isOnline) {
-    return <h>🔴 Offline, Please Check Your Internet Connection !!!</h>
+    return <h className="mt-44">🔴 Offline, Please Check Your Internet Connection !!!</h>
   }
 
   // Early rendering...
-  if(!allRestaurants) return null;
+  // if(!allRestaurants) return;
 
   // if(filteredRestaurants?.length === 0)
   //   return <h1>No Restaurant Found</h1>
 
-  return allRestaurants.length === 0 ? (
+  return loading ? (
     <Shimmer/>
   ) : (
     <>
       <div className="py-4 px-44 flex justify-center mt-28">
-        <input className="w-[500px] outline-none border-solid border-2 border-gray-600 py-3 px-4 text-xl text-black" type="text" placeholder="Search" value={searchText} onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
+        <input className="w-[500px] outline-none border-solid border-2 border-gray-600 py-3 px-4 text-xl text-black" 
+          type="text" 
+          placeholder="Search" 
+          value={searchText} 
+          onChange={(e) => { setSearchText(e.target.value);}}
         />
-        <button className="px-6 py-1 bg-blue-600 text-white font-medium text-base leading-tight uppercase rounded-r-sm shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" onClick={() => {
-            // need to filter the data
-            const data = filterData(searchText, allRestaurants);
-            // update the state:
-            setFilteredRestaurants(data);
+
+        <button className="px-6 py-1 bg-blue-600 text-white font-medium text-base leading-tight uppercase rounded-r-sm shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" 
+          onClick={() => {
+            const data = filterData(searchText, allRestaurants); // need to filter the data
+            setFilteredRestaurants(data); // update the state:
           }}
         >
           Search
