@@ -3,19 +3,19 @@ import { useState } from "react";
 const Section = ({title, description, isVisible, setIsVisible}) => {
 
     return (
-        <div className="border border-black p-2 m-2">
+        <div className="border border-white p-2 m-2">
             <h3 className="font-bold text-xl">{title}</h3>
             {
                 isVisible ? 
                             (
                              <div>
-                                <button className="underline" onClick={() => setIsVisible(false)}>Hide</button>
-                                <p>{description}</p>
+                                <button className="underline text-white" onClick={() => setIsVisible(false)}>Hide</button>
+                                <p className="text-[#b8c1ec]">{description}</p>
                              </div>
                             )
                           : 
                             (
-                             <button className="underline" onClick={() => setIsVisible(true)}>Show
+                             <button className="underline text-white" onClick={() => setIsVisible(true)}>Show
                              </button>
                             )
             }
@@ -29,8 +29,8 @@ const InstaMart = () => {
   const[visibleSection, setVisibleSection] = useState("true");
 
   return (
-    <div className="py-2 px-44">
-      <h1 className="text-3xl p-2 mt-28 font-bold">Instamart</h1>
+    <div className="mt-24 px-44 h-[68vh] text-white flex flex-col justify-center  bg-[#232946]">
+      <h1 className="text-3xl p-2 font-bold">Instamart</h1>
 
       <Section
         title={"About Instamart"}
