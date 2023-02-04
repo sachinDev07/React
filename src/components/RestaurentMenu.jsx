@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import { IMG_CDN_URL } from "../config";
@@ -7,8 +6,8 @@ import Sale from "../assests/images/sale.png";
 
 const RestaurentMenu = () => {
   const { resId } = useParams();
-
   const restaurent = useRestaurentMenu(resId);
+
 
   return !restaurent ? (
     <Shimmer />
