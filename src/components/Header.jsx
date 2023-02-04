@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";import logo from ".././assests/images/logoImg.png";
-
+import Shimmer from "./Shimmer";
+import useAllRestaurents from "../hooks/useAllRestaurents";
 
 const Title = () => (
     <Link to="/" className="w-48" id="title" >
@@ -11,20 +12,32 @@ const Title = () => (
 
 const Header = () => {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const { loading } = useAllRestaurents();
 
   // const isOnline = useOnline();
 
-    return (
+return loading ? (
+    <Shimmer/>
+  ) : (
       <div className=" flex fixed left-0 top-0 w-full z-50 py-4 px-44 justify-between items-center text-center bg-gray-100 shadow-lg">
         <Title /> 
         <div className="nav-items">
-          <ul className="flex gap-4 text-xl  text-black items-center text-center">
-            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/" > Home </Link> </li>
-            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/about" > About </Link></li>
+          <ul className="flex gap-4 text-xl text-black items-center text-center">
+            <li>
+              <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/" > Home </Link>
+            </li>
+            <li>
+              <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/about" > About </Link>
+            </li>
             <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/contact" > Contact </Link></li>
-            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/cart" > Cart </Link></li>
-            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/instamart">Instamart</Link></li>
+            <li>
+              <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/cart" > Cart 
+              </Link>
+            </li>
+            <li>
+              <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/instamart">Instamart</Link>
+            </li>
             {/* <li>{isOnline ? "✅" : "🔴"}</li> */}
             <li>
                 {
