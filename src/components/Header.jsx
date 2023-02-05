@@ -4,7 +4,6 @@ import logo from ".././assests/images/logoImg.png";
 import Shimmer from "./Shimmer";
 import useAllRestaurents from "../hooks/useAllRestaurents";
 import { useSelector } from "react-redux";
-import CartImg from '.././assests/images/cart.png';
 
 const Title = () => (
     <Link to="/" className="w-48" id="title" >
@@ -34,19 +33,13 @@ return loading ? (
             <li>
               <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/about" > About </Link>
             </li>
-            <li>
-              <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/contact" > Contact </Link>
+            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/contact" > Contact </Link>
             </li>
             <li>
               <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/instamart">Instamart</Link>
             </li>
-            <li className="relative">
-              <Link className="py-2 px-3 hover:text-white hover:rounded-sm focus:text-white transition-all ease-in duration-300 m-auto text-center block" title="cart" to="/cart" > 
-              <img src={CartImg} alt="cart" className="w-10 h-10 " />
-              {
-                cartItems.length <= 9 ? (<span className="absolute top-[22px] left-[28px] text-bold text-base text-white">{cartItems.length}</span>)
-                : (<span className="absolute top-[22px] left-[23px] text-bold text-base text-white">{cartItems.length}</span>)
-              }
+            <li>
+              <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/cart" > Cart {cartItems.length}
               </Link>
             </li>
             <li>
@@ -54,12 +47,12 @@ return loading ? (
                   isLoggedIn 
                   ? 
                     <button 
-                            className=" min-w-[113px] px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg transition duration-150 ease-in-out"
+                            className="px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg transition duration-150 ease-in-out"
                             onClick={() => setIsLoggedIn(false)} > Logout 
                     </button> 
                   : 
                     <button 
-                            className="min-w-[113px] px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                            className="px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                             onClick={() => setIsLoggedIn(true)} > Login 
                     </button>
                 }

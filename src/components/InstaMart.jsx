@@ -3,7 +3,7 @@ import { useState } from "react";
 const Section = ({title, description, isVisible, setIsVisible}) => {
 
     return (
-        <div className="border border-white p-2 m-1">
+        <div className="border border-white p-2 m-2">
             <h3 className="font-bold text-xl">{title}</h3>
             {
                 isVisible ? 
@@ -29,7 +29,7 @@ const InstaMart = () => {
   const[visibleSection, setVisibleSection] = useState("true");
 
   return (
-    <div className="mt-32 px-44 h-[68vh] text-white flex flex-col justify-center  bg-[#232946]">
+    <div className="mt-24 px-44 h-[68vh] text-white flex flex-col justify-center  bg-[#232946]">
       <h1 className="text-3xl p-2 font-bold">Instamart</h1>
 
       <Section
