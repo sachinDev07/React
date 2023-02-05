@@ -3,10 +3,19 @@ import Shimmer from "./Shimmer";
 import { IMG_CDN_URL } from "../config";
 import useRestaurentMenu from "../hooks/useRestaurentMenu";
 import Sale from "../assests/images/sale.png";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
+
 
 const RestaurentMenu = () => {
   const { resId } = useParams();
   const restaurent = useRestaurentMenu(resId);
+
+  const dispatch = useDispatch();
+
+  const addFoodItem = (item) => {
+    dispatch(addItem(item));
+  }
 
 
   return !restaurent ? (
@@ -35,7 +44,7 @@ const RestaurentMenu = () => {
                 </div>
                 <div className="border-[1px]  border-gray-500"></div>
                 <div className="flex flex-col">
-                  <span className="text-white font-bold content-center"><i className="fa-solid fa-indian-rupee-sign text-sm pr-2"></i>{restaurent.costForTwo}</span>
+                  <span className="text-white font-bold content-center"><i className="fa-solid fa-indian-rupee-sign text-sm pr-2"></i>{restaurent.costForTwo/100}</span>
                   <small className="mt-1 font-bold text-gray-400">Cost for two</small>
                 </div>
               </div>
@@ -71,12 +80,19 @@ const RestaurentMenu = () => {
         <ul>
           {
             Object.values(restaurent?.menu?.items).map((item) => 
-            (<li key={item.id} className="flex mb-8 px-10 py-4 justify-between items-center  bg-orange-200">
+            (<li key={item.id} className="flex mb-8 px-10 py-4 justify-between items-center  bg-[#fec7d7]">
               <div>
                 <h1 className="text-xl font-medium mb-1">{item?.name}</h1>
                 <span className="inline-block text-sm text-red-500 font-semibold mb-3">{item?.category}</span>
-                <p className="w-[700px] font-normal mb-3 ">{item?.description.charAt(0).toUpperCase() + item?.description.slice(1)}</p>
-                <span className="font-medium"><i className="fa-solid fa-indian-rupee-sign text-sm pr-1"></i>{Math.floor(item?.price / 100)}</span>
+                <p className="w-[700px] text-[#0e172c] font-medium mb-3 ">{item?.description.charAt(0).toUpperCase() + item?.description.slice(1)}</p>
+                <div className="flex gap-x-7 items-center">
+                    <span className="font-bold text-lg"><i className="fa-solid  fa-indian-rupee-sign font-bold text-sm pr-1"></i>{Math.floor(item?.price / 100)}
+                    </span>
+                    <button className=" p-2 text-sm font-semibold bg-[#0e172c] text-white rounded-sm left-24 top-[138px]"
+                      onClick={() => addFoodItem(item)}
+                      >Add Item
+                    </button>
+                </div>
               </div>
               <img className="w-44 h-36 rounded-md" src={IMG_CDN_URL + item?.cloudinaryImageId} alt="food-img" />
             </li>)).slice(0, 22)

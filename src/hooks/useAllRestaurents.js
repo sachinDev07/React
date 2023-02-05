@@ -16,7 +16,6 @@ const useAllRestaurents = () => {
       setLoading(true);
       const data = await fetch(API_URL);
       const json = await data.json();
-      console.log(json);
       setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
       setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
       setLoading(false);

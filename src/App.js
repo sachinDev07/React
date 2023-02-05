@@ -6,29 +6,23 @@ import About from "./components/About";
 import Error from "./components/Error";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Contact from "./components/Contact";
-import Cart from "./components/Cardt";
+import Cart from "./components/Cart";
 import RestaurentMenu from "./components/RestaurentMenu";
 import Profile from "./components/Profile";
 import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
-// import InstaMart from "./components/InstaMart";   this way of import is not used when we do lazy loading.
-
-// chuncking
-// lazy loading
-// code spilliting
-// On Demand loading
-// Dynamic import loading
-// Dynamic bundle loading
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 const InstaMart = lazy(() => import("./components/InstaMart"));
 
 const AppLayout = () => {
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </Provider>
   );
 };
 
