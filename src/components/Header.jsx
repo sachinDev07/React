@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";import logo from ".././assests/images/logoImg.png";
+import { Link } from "react-router-dom";
+import logo from ".././assests/images/logoImg.png";
 import Shimmer from "./Shimmer";
 import useAllRestaurents from "../hooks/useAllRestaurents";
+import { useSelector } from "react-redux";
 
 const Title = () => (
     <Link to="/" className="w-48" id="title" >
@@ -15,7 +17,8 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const { loading } = useAllRestaurents();
 
-  // const isOnline = useOnline();
+  const cartItems = useSelector(store => store.cart.items);
+
 
 return loading ? (
     <Shimmer/>
@@ -30,15 +33,15 @@ return loading ? (
             <li>
               <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/about" > About </Link>
             </li>
-            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/contact" > Contact </Link></li>
-            <li>
-              <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/cart" > Cart 
-              </Link>
+            <li><Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/contact" > Contact </Link>
             </li>
             <li>
               <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/instamart">Instamart</Link>
             </li>
-            {/* <li>{isOnline ? "✅" : "🔴"}</li> */}
+            <li>
+              <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/cart" > Cart {cartItems.length}
+              </Link>
+            </li>
             <li>
                 {
                   isLoggedIn 
