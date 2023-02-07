@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 import useAllRestaurents from "../hooks/useAllRestaurents";
 import { useSelector } from "react-redux";
 import CartImg from '.././assests/images/cart.png';
+import useOnline from "../hooks/useOnline";
 
 const Title = () => (
     <Link to="/" className="w-48" id="title" >
@@ -18,6 +19,8 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const { loading } = useAllRestaurents();
 
+  const  isOnline  = useOnline();
+
   const cartItems = useSelector(store => store.cart.items);
 
 
@@ -28,6 +31,11 @@ return loading ? (
         <Title /> 
         <div className="nav-items">
           <ul className="flex gap-4 text-xl text-black items-center text-center">
+            <li>
+              {
+                 isOnline ? "✅": "🔴" 
+              }
+            </li>
             <li>
               <Link className="py-2 px-3 hover:text-white hover:rounded-sm hover:bg-blue-700 focus:bg-blue-700 focus:text-white transition-all ease-in duration-300 m-auto text-center block" to="/" > Home </Link>
             </li>
