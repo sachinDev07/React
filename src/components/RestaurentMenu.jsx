@@ -77,7 +77,7 @@ const RestaurentMenu = () => {
 
       <div className="px-44 py-2">
         <h1 className="text-xl inline-block text-gray-500 p-4 bg-black-100">Recommended</h1>    
-        <ul>
+        <ul data-testid="menu ">
           {
             Object.values(restaurent?.menu?.items).map((item) => 
             (<li key={item.id} className="flex mb-8 px-10 py-4 justify-between items-center  bg-[#fec7d7]">
@@ -88,7 +88,7 @@ const RestaurentMenu = () => {
                 <div className="flex gap-x-7 items-center">
                     <span className="font-bold text-lg"><i className="fa-solid  fa-indian-rupee-sign font-bold text-sm pr-1"></i>{Math.floor(item?.price / 100)}
                     </span>
-                    <button className=" p-2 text-sm font-semibold bg-[#0e172c] text-white rounded-sm left-24 top-[138px]"
+                    <button data-testid="addBtn" className=" p-2 text-sm font-semibold bg-[#0e172c] text-white rounded-sm left-24 top-[138px]"
                       onClick={() => addFoodItem(item)}
                       >Add Item
                     </button>
