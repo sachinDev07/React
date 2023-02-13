@@ -5,12 +5,19 @@ import { Link } from "react-router-dom";
 import { filterData} from ".././utils/helper"
 import useOnline from "../hooks/useOnline";
 import useAllRestaurents from "../hooks/useAllRestaurents";
+import Slider from "./Slider";
 
 
 const Body = () => {
   
   const [searchText, setSearchText] = useState("");
-  const {allRestaurants, filteredRestaurants, setFilteredRestaurants, loading} = useAllRestaurents();
+  const {
+    allRestaurants, 
+    filteredRestaurants, 
+    setFilteredRestaurants, 
+    loading,
+    sliderRestaurentList
+  } = useAllRestaurents();
 
   const isOnline = useOnline();
 
@@ -23,7 +30,9 @@ const Body = () => {
     <Shimmer/>
   ) : (
     <>
-      <div className="py-4 px-44 flex justify-center mt-28">
+      <Slider slider={sliderRestaurentList} />
+
+      <div className="py-4 px-44 flex justify-center mt-5">
         <input data-testid="search-input" className="w-[500px] outline-none border-solid border-2 border-gray-600 py-3 px-4 text-xl text-black" 
           type="text" 
           placeholder="Search your favourite restaurent" 
