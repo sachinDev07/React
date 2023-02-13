@@ -6,6 +6,7 @@ import useAllRestaurents from "../hooks/useAllRestaurents";
 import { useSelector } from "react-redux";
 import CartImg from '.././assests/images/cart.png';
 import useOnline from "../hooks/useOnline";
+import onlineImg from ".././assests/images/onlineImg.png";
 
 const Title = () => (
     <Link to="/" className="w-48" id="title" >
@@ -33,7 +34,7 @@ return loading ? (
           <ul className="flex gap-4 text-xl text-black items-center text-center">
             <li data-testid="online-status">
               {
-                 isOnline ? "✅": "🔴" 
+                 isOnline ? <img width="30px" alt="green-img" src={onlineImg}/> : "🔴" 
               }
             </li>
             <li>
