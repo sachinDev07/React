@@ -39,7 +39,7 @@ const RestaurentMenu = () => {
                 </div>
                 <div className="border-[1px]  border-gray-500"></div>
                 <div className="flex flex-col">
-                  <span className="text-white font-bold content-center">{restaurent.sla.slaString} mins</span>
+                  <span className="text-white font-bold content-center">{restaurent.sla.slaString}</span>
                   <small className="mt-1 font-bold text-gray-400">Delivery Time</small>
                 </div>
                 <div className="border-[1px]  border-gray-500"></div>
