@@ -1,13 +1,12 @@
 import {useRouteError} from 'react-router-dom';
+import error404Image from '.././assests/images/404page.png';
 
 const Error = () => {
     const err = useRouteError();
     console.log(err);
     return (
         <div>
-            <h1>Opps !!!</h1>
-            <h2>Something went wrong !!!</h2>
-            <h3>{err.status + " : " + err.statusText}</h3>
+            <img className='bg-gray-100 object-contain w-screen h-screen' src={error404Image} alt="Not found" />
         </div>
     );
 };
