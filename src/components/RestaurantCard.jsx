@@ -13,7 +13,7 @@ const RestaurantCard = ({
       aggregatedDiscountInfo,
   }) => {
         return (
-          <div className="w-[280px] mt-4 transition-all duration-300 ease-in-out pb-5 pt-4 pr-4 pl-4 rounded-lg hover:scale-105 hover:shadow-2xl relative">
+          <div className="w-[280px] min-h-[390px] mt-4 transition-all duration-300 ease-in-out pb-5 pt-4 pr-4 pl-4 rounded-lg hover:scale-105 hover:shadow-2xl relative shadow-[rgba(0,0,0,0.24)_0px_3px_8px]">
             {
               ribbon ? 
                         (<div className="bg-green-600 text-xs text-white inline-block py-2 px-3 absolute tracking-[2px] font-medium">{ribbon[0]?.type}</div>)
