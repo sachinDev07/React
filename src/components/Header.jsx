@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from ".././assests/images/logoImg.png";
-import Shimmer from "./Shimmer";
-import useAllRestaurents from "../hooks/useAllRestaurents";
 import { useSelector } from "react-redux";
 import CartImg from '.././assests/images/cart.png';
 import useOnline from "../hooks/useOnline";
@@ -18,16 +16,13 @@ const Title = () => (
 const Header = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const { loading } = useAllRestaurents();
 
   const  isOnline  = useOnline();
 
   const cartItems = useSelector(store => store.cart.items);
 
 
-return loading ? (
-    <Shimmer/>
-  ) : (
+return (
       <div className=" flex fixed left-0 top-0 w-full z-50 py-4 px-44 justify-between items-center text-center bg-gray-100 shadow-lg">
         <Title /> 
         <div className="nav-items">
