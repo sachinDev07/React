@@ -13,10 +13,20 @@ import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import useOnline from "./hooks/useOnline";
 
 const InstaMart = lazy(() => import("./components/InstaMart"));
 
 const AppLayout = () => {
+  const isOnline = useOnline();
+  if (!isOnline){
+    return (
+      <div className="flex flex-col justify-center items-center h-screen">
+        <h1 className="text-3xl  text-gray-500">Ooops!</h1>
+        <h2 className="text-4xl text-gray-500">Please check your Internet Connection !!!</h2>
+      </div>
+    )
+  }
   return (
     <Provider store={store}>
       <Header />
