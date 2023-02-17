@@ -27,6 +27,7 @@ const Body = () => {
           setFilteredRestaurants={setFilteredRestaurants} 
           allRestaurants={allRestaurants} 
           filterData={filterData}
+          restaurants={filteredRestaurants}
         />
         
       <div className="grid grid-cols-4 gap-10 py-4 px-44" data-testid="restaurent-list">
