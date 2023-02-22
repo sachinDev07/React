@@ -19,12 +19,19 @@ const Cart = () => {
                     <h1 className='text-3xl font-bold  text-[#181818]'>Shopping Cart</h1>
                     <div className='flex items-center gap-x-4'>
                         <span className="text-xl font-semibold text-[#181818]">Cart items : {cartItems.length}</span>
-                        <button className='py-2 px-4 rounded font-bold  bg-[#4fc4cf] text-[#181818] hover:bg-blue-400 transition-all ease-in-out duration-200' onClick={() => handleClearCart()}>Clear All</button>
+                        <button className='py-2 px-4 rounded font-bold  bg-[#4fc4cf] text-[#181818]  hover:bg-blue-400 transition-all ease-in-out duration-200' 
+                         onClick={() =>  handleClearCart()}>
+                         Clear All
+                        </button>
                     </div>
                 </div>
                 {
                     cartItems.map((item) => (
-                        <FoodItem key={item.id} {...item}/>
+                        <FoodItem 
+                           key={item.id} 
+                           id={item.id}
+                           {...item}                                
+                        />
                     ))
                 }
             </div>
