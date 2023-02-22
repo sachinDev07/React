@@ -88,7 +88,7 @@ const RestaurentMenu = () => {
                 <div className="flex gap-x-7 items-center">
                     <span className="font-bold text-lg"><i className="fa-solid  fa-indian-rupee-sign font-bold text-sm pr-1"></i>{Math.floor(item?.price / 100)}
                     </span>
-                    <button data-testid="addBtn" className=" p-2 text-sm font-semibold bg-[#0e172c] text-white rounded-sm left-24 top-[138px]"
+                    <button data-testid="addBtn" className=" p-2 text-sm font-semibold bg-[#0e172c] text-white rounded left-24 top-[138px] hover:bg-red-900"
                       onClick={() => addFoodItem(item)}
                       >Add Item
                     </button>
