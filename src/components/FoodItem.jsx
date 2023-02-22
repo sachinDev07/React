@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { IMG_CDN_URL } from "../config";
-import { clearCart, removeItem } from "../utils/cartSlice";
+import { removeItem } from "../utils/cartSlice";
 
 
 const FoodItem = ({
@@ -9,13 +9,15 @@ const FoodItem = ({
     cloudinaryImageId,
     price,
     isVeg,
+    id,
 }) => {
 
     const dispatch = useDispatch();
     
-    const removeFromCart = (itemId) => {
-        dispatch(removeItem(itemId));
-      };
+    const removeFromCart = (id) => {
+        dispatch(removeItem(id));
+    };
+
 
     return (
         <div className="mt-10 p-5 flex gap-x-8 bg-slate-200 rounded"> 
@@ -32,11 +34,10 @@ const FoodItem = ({
                         : (<div className="text-[#172c66] font-semibold"> Veg</div>)
                     }
                     <div className="font-bold ">
-                        <button className="p-2 text-sm rounded font-bold border-2 border-red-500 border-solid bg-red-300 text-black hover:bg-red-400 transition-all ease-in-out duration-200"
-                        onClick={() => removeFromCart()}
-                        >
+                        <button type="button" className="p-2 text-sm rounded font-bold border-2 border-red-500 border-solid bg-red-300 text-black hover:bg-red-400 transition-all ease-in-out duration-200"
+                          onClick={() => removeFromCart(id)}>
                             Remove Item
-                        </button>
+                          </button>
                     </div>
                 </div>
             </div>
