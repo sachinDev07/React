@@ -3,13 +3,15 @@ import Shimmer from "./Shimmer";
 import { IMG_CDN_URL } from "../config";
 import useRestaurentMenu from "../hooks/useRestaurentMenu";
 import Sale from "../assests/images/sale.png";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../utils/cartSlice";
-import { useDispatch } from "react-redux";
-
+import CountQuantity from "./CountQuantiy";
 
 const RestaurentMenu = () => {
   const { resId } = useParams();
   const restaurent = useRestaurentMenu(resId);
+
+  const cartItems = useSelector(store => store.cart.items);
 
   const dispatch = useDispatch();
 
@@ -17,6 +19,10 @@ const RestaurentMenu = () => {
     dispatch(addItem(item));
   }
 
+  function getQuantityById(id) {
+    const item = cartItems.find((item) => item.id === id);
+    return item ? item.quantity : null ;
+  }
 
   return !restaurent ? (
     <Shimmer />
@@ -88,10 +94,26 @@ const RestaurentMenu = () => {
                 <div className="flex gap-x-7 items-center">
                     <span className="font-bold text-lg"><i className="fa-solid  fa-indian-rupee-sign font-bold text-sm pr-1"></i>{Math.floor(item?.price / 100)}
                     </span>
-                    <button data-testid="addBtn" className=" p-2 text-sm font-semibold bg-[#0e172c] text-white rounded left-24 top-[138px] hover:bg-red-900"
-                      onClick={() => addFoodItem(item)}
-                      >Add Item
-                    </button>
+
+                    {
+                      getQuantityById(item.id) > 0
+                        ? (
+                            <CountQuantity
+                              key={item.id} 
+                              item={item}
+                            />
+                          )
+                        : 
+                          (
+                            <button 
+                              data-testid="addBtn" 
+                              className=" p-2 text-sm font-semibold bg-[#0e172c] text-white rounded left-24 top-[138px] hover:bg-red-700 transition-all duration-200 ease-linear"
+                              onClick={() => addFoodItem(item)}
+                            >Add Item 
+                            </button>
+                          ) 
+                    }
+
                 </div>
               </div>
               <img className="w-44 h-36 rounded-md" src={IMG_CDN_URL + item?.cloudinaryImageId} alt="food-img" />
