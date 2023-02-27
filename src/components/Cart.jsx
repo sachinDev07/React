@@ -1,7 +1,7 @@
 import cart_img from '../assests/images/emptycart.png';
 import { useDispatch, useSelector } from 'react-redux';
-import FoodItem from './FoodItem';
 import { clearCart } from '../utils/cartSlice';
+import CartItems from './CartItems'
 
 const Cart = () => {
 
@@ -27,7 +27,7 @@ const Cart = () => {
                 </div>
                 {
                     cartItems.map((item) => (
-                        <FoodItem 
+                        <CartItems 
                            key={item.id} 
                            id={item.id}
                            {...item}                                
