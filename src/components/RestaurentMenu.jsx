@@ -6,6 +6,8 @@ import Sale from "../assests/images/sale.png";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 import CountQuantity from "./CountQuantiy";
+import TotalQuantity from "./TotalQuantity";
+
 
 const RestaurentMenu = () => {
   const { resId } = useParams();
@@ -27,9 +29,9 @@ const RestaurentMenu = () => {
   return !restaurent ? (
     <Shimmer />
   ) : (
-    <div className="mt-28">
-      <div>
-        <div className="bg-gray-900 py-8 px-44 flex justify-between items-center">
+    <div className="mt-[90px] ">
+      <div className="">
+        <div className="bg-gray-900 py-8 px-44 flex justify-between items-center fixed left-0  right-0">
           <div className="flex gap-x-10">
             <img className="w-72" src={IMG_CDN_URL + restaurent?.cloudinaryImageId} />
 
@@ -81,45 +83,49 @@ const RestaurentMenu = () => {
         </div>  
       </div>
 
-      <div className="px-44 py-2">
-        <h1 className="text-xl inline-block text-gray-500 p-4 bg-black-100">Recommended</h1>    
-        <ul data-testid="menu ">
-          {
-            Object.values(restaurent?.menu?.items).map((item) => 
-            (<li key={item.id} className="flex mb-8 px-10 py-4 justify-between items-center  bg-[#fec7d7]">
-              <div>
-                <h1 className="text-xl font-medium mb-1">{item?.name}</h1>
-                <span className="inline-block text-sm text-red-500 font-semibold mb-3">{item?.category}</span>
-                <p className="w-[700px] text-[#0e172c] font-medium mb-3 ">{item?.description.charAt(0).toUpperCase() + item?.description.slice(1)}</p>
-                <div className="flex gap-x-7 items-center">
-                    <span className="font-bold text-lg"><i className="fa-solid  fa-indian-rupee-sign font-bold text-sm pr-1"></i>{Math.floor(item?.price / 100)}
-                    </span>
+      <div className="flex gap-x-4 justify-between px-44 py-2">
+          <div >
+          <h1 className="mt-60 text-xl inline-block text-gray-500 p-4 bg-black-100">Recommended</h1>    
+          <ul data-testid="menu w-[820px]">
+            {
+              Object.values(restaurent?.menu?.items).map((item) => 
+              (<li key={item.id} className="w-[820px] max-w-full flex mb-8 px-10 py-4 justify-between items-center  bg-[#fec7d7]">
+                <div>
+                  <h1 className="text-xl font-medium mb-1">{item?.name}</h1>
+                  <span className="inline-block text-sm text-red-500 font-semibold mb-3">{item?.category}</span>
+                  <p className="text-[#0e172c] font-medium mb-3 ">{item?.description.charAt(0).toUpperCase() + item?.description.slice(1)}</p>
+                  <div className="flex gap-x-7 items-center">
+                      <span className="font-bold text-lg"><i className="fa-solid  fa-indian-rupee-sign font-bold text-sm pr-1"></i>{Math.floor(item?.price / 100)}
+                      </span>
 
-                    {
-                      getQuantityById(item.id) > 0
-                        ? (
-                            <CountQuantity
-                              key={item.id} 
-                              item={item}
-                            />
-                          )
-                        : 
-                          (
-                            <button 
-                              data-testid="addBtn" 
-                              className=" p-2 text-sm font-semibold bg-[#0e172c] text-white rounded left-24 top-[138px] hover:bg-red-700 transition-all duration-200 ease-linear"
-                              onClick={() => addFoodItem(item)}
-                            >Add Item 
-                            </button>
-                          ) 
-                    }
+                      {
+                        getQuantityById(item.id) > 0
+                          ? (
+                              <CountQuantity
+                                key={item.id} 
+                                item={item}
+                              />
+                            )
+                          : 
+                            (
+                              <button 
+                                data-testid="addBtn" 
+                                className=" p-2 text-sm font-semibold bg-[#0e172c] text-white rounded left-24 top-[138px] hover:bg-red-700 transition-all duration-200 ease-linear"
+                                onClick={() => addFoodItem(item)}
+                              >Add Item 
+                              </button>
+                            ) 
+                      }
 
+                  </div>
                 </div>
-              </div>
-              <img className="w-44 h-36 rounded-md" src={IMG_CDN_URL + item?.cloudinaryImageId} alt="food-img" />
-            </li>)).slice(0, 22)
-          }
-        </ul>
+                <img className="w-44 h-36 rounded-md" src={IMG_CDN_URL + item?.cloudinaryImageId} alt="food-img" />
+              </li>)).slice(0, 22)
+            }
+          </ul>
+          </div>
+
+          <TotalQuantity />
       </div>
     </div>
   );
