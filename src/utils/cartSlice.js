@@ -1,10 +1,22 @@
 import { createSlice} from '@reduxjs/toolkit';
 
+let shopItems = [];
+
+try {
+    const cartData = localStorage.getItem('shoppingCart');
+  
+    if (cartData !== null) {
+      shopItems = JSON.parse(cartData);
+    }
+  } catch (error) {
+    console.error('Error parsing JSON data:', error);
+  }
+
 
 const cartSlice = createSlice( {
     name : 'cart',
     initialState : {
-        items : [],
+        items : shopItems,
     },
     reducers : {
         addItem: (state, action) => {
@@ -15,6 +27,9 @@ const cartSlice = createSlice( {
                 state.items[itemIndex].quantity++;
 
             }
+
+            localStorage.setItem("shoppingCart", JSON.stringify(state.items.map((item) => item)));
+            
         },
         removeItem: (state, action) => {
             const itemIndex = state.items.findIndex(item => item.id === action.payload);
