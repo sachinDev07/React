@@ -25,6 +25,11 @@ const Cart = () => {
                         </button>
                     </div>
                 </div>
+                <div className=" mt-8 p-2 rounded flex justify-between bg-red-400 text-lg text-white font-semibold border-2 border-solid border-red-500">
+                    <div>Product</div>
+                    <div>Quantity</div>
+                    <div>Subtotal</div>
+                </div>
                 {
                     cartItems.map((item) => (
                         <CartItems 
