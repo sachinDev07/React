@@ -16,7 +16,7 @@ const TotalQuantity = () => {
         dispatch(removeItem(item));
     }
 
-    const getTotalQuantity = () => {
+    const getTotalPrice = () => {
         let total = 0
         cartItems.forEach(item => {
             total += item.price * item.quantity;
@@ -25,8 +25,8 @@ const TotalQuantity = () => {
     }
 
     return (
-        <div className='mt-60 flex flex-col'>
-            <div className='mt-14 w-[300px] '>
+        <div className='mt-52 flex flex-col '>
+            <div className='mt-14 w-[320px] '>
                 {
                     cartItems.length === 0 ?
                     (
@@ -39,7 +39,7 @@ const TotalQuantity = () => {
                     )
                     :
                     (
-                        <div className='fixed max-w-[300px] '>
+                        <div className='fixed max-w-[320px] shadow-3xl p-4 rounded'>
                                 <h2 className='font-bold text-3xl text-black text-start'>Cart</h2>
                                 <span className='font-semibold text-gray-500 mt-2 text-sm'>{cartItems.length + " ITEM"}
                                 </span>
@@ -47,7 +47,7 @@ const TotalQuantity = () => {
                             {
                                 Object.values(cartItems).map((item) => (
                                     <div key={item.id} className='flex justify-between items-center mt-4 '>
-                                        <div className='w-[155px] mr-2'>
+                                        <div className='min-w-[100px] mr-2'>
                                             {item.name}
                                         </div>
                                         <div className='py-1 px-3 flex gap-x-3 border-2 border-green-300 border-solid max-w-[90px] mr-8'>
@@ -61,7 +61,7 @@ const TotalQuantity = () => {
                                                 <i className="fa-solid fa-plus"></i>
                                             </button>
                                         </div>
-                                        <div className='font-semibold'>
+                                        <div className='font-semibold w-[30px]'>
                                             {item.price / 100}
                                         </div> 
                                     </div>   
@@ -74,7 +74,7 @@ const TotalQuantity = () => {
                                     <div className='text-lg font-bold text-gray-800'>Sub Total</div>
                                     <div className='text-xs text-gray-400'>Extra charges may apply</div>
                                 </div>
-                                 <div className='text-lg font-bold text-gray-800'>Rs. {getTotalQuantity()}</div>
+                                 <div className='text-lg font-bold text-gray-800'>Rs. {getTotalPrice()}</div>
                             </div>
                             <button 
                                 type='button' 
