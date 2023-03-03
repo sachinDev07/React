@@ -13,6 +13,25 @@ const Cart = () => {
         dispatch(clearCart());
     }
 
+    const taxPay = 35;
+    
+    function getSubTotal() {
+        const subTotal = cartItems.reduce((total, item) => {
+            const itemSubTotal = item.price * item.quantity;
+            return total + itemSubTotal;
+        }, 0);
+          
+        return subTotal / 100;
+    }
+
+    function getTotalPrice () {
+        let total = 0;
+        cartItems.forEach(item => {
+            total += item.price * item.quantity;
+        })
+        return taxPay+total/100;
+    }
+
     return cartItems.length != 0 ? (
             <div className='px-44 py-4 mt-28 bg-[#fffffe]'>
                 <div className='flex justify-between items-center'>
@@ -27,7 +46,7 @@ const Cart = () => {
                 </div>
                 <div className=" mt-8 p-2 rounded flex justify-between bg-red-400 text-lg text-white font-semibold border-2 border-solid border-red-500">
                     <div>Product</div>
-                    <div>Quantity</div>
+                    <div className='ml-36'>Quantity</div>
                     <div>Subtotal</div>
                 </div>
                 {
@@ -39,9 +58,27 @@ const Cart = () => {
                         />
                     ))
                 }
-            </div>
-        
-        
+                <div className="flex flex-col items-end mr-4 mt-8">
+                    <div className='bg-red-500 w-[510px] h-2 rounded'></div>
+                    <div className='mt-3'>
+                        <div className='flex justify-between w-[510px] px-2'>
+                            <div className='font-bold text-gray-800'>Subtotal</div>
+                            <div className='font-bold text-gray-800'>Rs {getSubTotal()}</div>
+                        </div>
+                        <div className='mt-2 flex justify-between w-[510px] px-2'>
+                            <div className='font-bold text-gray-800'>Tax</div>
+                            <div className='font-bold text-gray-800'>Rs {taxPay}</div>
+                        </div>
+                        <div className='mt-2 flex justify-between w-[510px] px-2'>
+                            <div className='font-bold text-gray-800'>Total</div>
+                            <div className='font-bold text-gray-800'>Rs {getTotalPrice()}</div>
+                        </div>
+                    </div>    
+                </div>
+                <div className='flex flex-col items-end mr-6 mt-7 transition duration-200 ease-linear'>
+                    <button className='w-[260px] py-3 rounded-3xl bg-red-600 hover:bg-red-500 text-lg font-bold text-white transition duration-200 ease-linear'>Proceed To Checkout</button>
+                </div>
+            </div>   
     )
     :
     (
