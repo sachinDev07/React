@@ -33,8 +33,8 @@ const CartItems = ({
 
     return (
         <div className="mt-10 flex items-center"> 
-            <div className="mr-20 flex gap-x-4">
-                <div className="bg-gray-100 p-3 rounded">
+            <div className="mr-40 flex gap-x-4">
+                <div className="bg-gray-100 p-3 rounded flex ">
                     <img width="150px" className="object-contain" src={IMG_CDN_URL + cloudinaryImageId} alt="food-img" />
                 </div>
                 <div>
@@ -49,10 +49,9 @@ const CartItems = ({
                     </button> 
                 </div> 
             </div>
-            <div className="mr-auto py-2 px-3 border-2 border-solid border-slate-400">{getQuantityById(id)}</div> 
+            <div className="mr-auto py-1 px-3 rounded text-xl border-2 border-solid border-slate-400">{getQuantityById(id)}</div> 
             <div className="font-bold text-black mr-4">Rs {getSubTotal(id)}</div>     
         </div>
-     
     )
 }
 
