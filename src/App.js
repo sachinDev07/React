@@ -14,10 +14,12 @@ import Shimmer from "./components/Shimmer";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import useOnline from "./hooks/useOnline";
+import Login from "./components/Login";
 
 const InstaMart = lazy(() => import("./components/InstaMart"));
 
 const AppLayout = () => {
+
   const isOnline = useOnline();
   if (!isOnline){
     return (
@@ -27,6 +29,7 @@ const AppLayout = () => {
       </div>
     )
   }
+
   return (
     <Provider store={store}>
       <Header />
@@ -76,7 +79,12 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
+      
     ],
+  },
+  {
+    path : "/login",
+    element : <Login />,
   },
 ]);
 
