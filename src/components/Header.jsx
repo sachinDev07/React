@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import CartImg from '.././assests/images/cart.png';
 import useOnline from "../hooks/useOnline";
 import onlineImg from ".././assests/images/onlineImg.png";
+import { useNavigate } from "react-router-dom";
 
 const Title = () => (
     <Link to="/" className="w-48" id="title" >
@@ -14,6 +15,7 @@ const Title = () => (
 
 
 const Header = () => {
+  const navigate = useNavigate();
 
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
@@ -64,7 +66,7 @@ return (
                   : 
                     <button 
                             className="min-w-[113px] px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                            onClick={() => setIsLoggedIn(true)} > Login 
+                            onClick={() => navigate("/login")} > Login 
                     </button>
                 }
             </li>
